@@ -1,6 +1,7 @@
 const express = require("express");
 const users = require("./routes/user.routes");
-const User = require("./models/user.model");
+// const User = require("./models/user.model");
+require("joi");
 require("dotenv/config");
 
 const dbConnect = require("./config/dbConnect");
