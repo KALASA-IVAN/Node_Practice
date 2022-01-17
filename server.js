@@ -7,6 +7,8 @@ const dbConnect = require("./config/dbConnect");
 
 const app = express();
 
+app.use(express.json())
+
 // Connection to db
 dbConnect();
 
@@ -14,17 +16,17 @@ dbConnect();
 app.get("/", (req, res) => {
   res.send("Hello kalasa");
 });
-// app.use("/api/users", users);
-app.post("/api/users", async (req, res) => {
-  const user = new User({
-    name: req.body.name,
-    email: req.body.email,
-    password: req.body.password,
-  });
+app.use("/api/users", users);
+// app.post("/api/users", async (req, res) => {
+//   const user = new User({
+//     name: req.body.name,
+//     email: req.body.email,
+//     password: req.body.password
+//   });
 
-  await user.save();
-  res.send(user);
-});
+//   await user.save();
+//   res.send(user);
+// });
 
 // Listening to a server
 const PORT = process.env.PORT || 8080;

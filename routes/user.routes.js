@@ -4,10 +4,10 @@ const router = express.Router()
 
 router.post("/", async (req, res) => {
     
-    // let user = await User.findOne({ email: req.body.email })
-    // if (user) {
-    //     res.status(401).send("The user already exists")
-    // } else {
+    let user = await User.findOne({ email: req.body.email })
+    if (user) {
+        res.status(401).send("The user already exists")
+    } else {
         user = new User({
             name: req.body.name,
             email: req.body.email,
@@ -17,7 +17,7 @@ router.post("/", async (req, res) => {
         await user.save()
         res.send(user)
     }
-    // }
+    }
 )
 
 module.exports = router
