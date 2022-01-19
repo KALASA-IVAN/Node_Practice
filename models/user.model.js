@@ -1,4 +1,4 @@
-const Joi = require("joi");
+const res = require("express/lib/response");
 const mongoose = require("mongoose");
 
 const User = mongoose.model(
@@ -26,11 +26,9 @@ const User = mongoose.model(
 //   const schema = {
 //     name: Joi.string().min(5).max(50).required(),
 //     email: Joi.string().min(5).max(255).required().email,
-//     password:Joi.string().min(5).max(255).required()
-//   }
-//   return Joi.validate(user,schema)
+//     password: Joi.string().min(5).max(255).required(),
+//   };
+//   return (validate = schema.validate(user));
 // }
 
-module.exports = User;
-// module.exports = validateUser
-
+exports.User = User;
