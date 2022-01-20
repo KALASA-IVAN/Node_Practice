@@ -7,5 +7,5 @@ const validate = Joi.object({
   });
   
   module.exports = {
-    validate,
+    validate, 
   };

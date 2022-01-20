@@ -3,22 +3,22 @@ const users = require("./routes/user.routes");
 // const User = require("./models/user.model");
 require("joi");
 require("dotenv/config");
-const bodyParser = require('body-parser')
+const bodyParser = require("body-parser");
 
 const dbConnect = require("./config/dbConnect");
 
 const app = express();
 
 app.use(express.json());
-app.use(bodyParser.urlencoded({ extended: true }))
-app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 // Connection to db
 dbConnect();
 
 // Routes
-app.use("/register", (req, res) => {
-  res.sendFile(__dirname, "views/Index.html");
+app.get("/register", (req, res) => {
+  res.sendFile("./views/index.html", {root: __dirname});
 });
 
 app.get("/", (req, res) => {

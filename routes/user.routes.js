@@ -1,5 +1,5 @@
 const User = require("../models/user.model");
-// const { validate } = require("../helpers/authSchema");
+const { validate } = require("../helpers/authSchema");
 const express = require("express");
 const bcrypt = require("bcrypt");
 const router = express.Router();
@@ -10,11 +10,11 @@ router.post("/", async (req, res) => {
   //   return res.status(400).send(error.details[0].message);
   // }
 
-  // const {err} = await validate.validateAsync(req.body);
-  // // console.log(result);
-  // if (err) {
-  //   return res.status(400).send(err.details[0].message)
-  // }
+  const {err} = await validate.validateAsync(req.body);
+  console.log(result);
+  if (err) {
+    return res.status(400).send(err.details[0].message)
+  }
 
   let user = await User.findOne({ email: req.body.email });
   if (user) {
