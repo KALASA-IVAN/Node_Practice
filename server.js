@@ -3,12 +3,15 @@ const users = require("./routes/user.routes");
 // const User = require("./models/user.model");
 require("joi");
 require("dotenv/config");
+const bodyParser = require('body-parser')
 
 const dbConnect = require("./config/dbConnect");
 
 const app = express();
 
 app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.json())
 
 // Connection to db
 dbConnect();
