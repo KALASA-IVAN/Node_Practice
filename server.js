@@ -13,6 +13,8 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+
+app.use(express.static("./views"))
 // Connection to db
 dbConnect();
 
