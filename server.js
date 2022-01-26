@@ -2,7 +2,9 @@ const express = require("express");
 const users = require("./routes/user.routes");
 // const User = require("./models/user.model");
 require("joi");
-require("dotenv/config");
+const dotenv = require("dotenv");
+
+dotenv.config();
 const bodyParser = require("body-parser");
 
 const dbConnect = require("./config/dbConnect");
